@@ -32,3 +32,32 @@ for (let row = 0; row < 9; row++) {
   }//end for(col)
 
 }//end for(row) 
+
+function readGridFromHtml() { 
+
+  const matrix = []; 
+
+  //rows 
+  for (let row = 0 ; row < 9; row++) { 
+  
+    const rowArr = []; 
+
+    //cols 
+    for (let col = 0 ; col < 9 ; col++) { 
+
+      const cell = sudokuGrid.querySelector('[data-rows="${row}"][data-cols="${col}"]');
+      const value = parseInt(cell.querySelector('input').value); 
+
+      //sets empty to 0 
+      rowArr.push(isNan(val) ?  0 : val); 
+
+    }// end for (col) 
+
+    matrix.push(rowArr); 
+
+  }//end for(row) 
+  
+  return matrix;
+
+}//end readGridFromHtml
+
