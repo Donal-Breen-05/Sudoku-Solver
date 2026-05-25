@@ -9,8 +9,7 @@ class Sudoku {
    this.grid.forEach(row => console.log(row.join(" ")));
   }//printMatix
 
-   
-   isSafe(row , col , num) { 
+  isSafe(row , col , num) { 
     
     //check row 
     for(let i = 0 ; i < 9 ; i++) { 
@@ -39,35 +38,44 @@ class Sudoku {
   
   }//end isSafe
 
-}// Sudoku
+  solve(row = 0 , col = 0) { 
 
-
-// main matrix 
-let matrix = [
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-]; 
-
-
-const solver = new Sudoku(matrix); 
-solver.printMatrix();
-
-class Sudoku { 
-   constructor(grid) { 
-    //copy grid 
-    this.grid = grid.map(row => [...row]); 
-  }
+    //base case 
+    if (row === 8 && col === 9) return true; 
   
-  printMatrix() { 
-   this.grid.forEach(row => console.log(row.join(" ")));
-  }//printMatix
+    // next row 
+    if (col === 9) { row++; col = 0; }
+  
+    //cell filled 
+    if (this.grid[row][col] !== 0) {
+
+      return this.solve(row, col +1); 
+
+    }//end if 
+    
+    for (let num = 1; num <= 9; num++) { 
+      
+      if(this.isSafe(row, col, num)) { 
+
+        this.grid[row][col] = num; 
+
+        if (this.solve(row, col + 1)) { 
+
+          return true; 
+
+        }//end if 
+        else{ 
+        
+          //backtrack 
+          this.grid[row][col] = 0; 
+
+        }//end else 
+
+      }//end if 
+    
+    }//end for 
+
+  }//solve
 
 }// Sudoku
 
