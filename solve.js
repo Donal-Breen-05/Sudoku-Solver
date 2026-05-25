@@ -1,3 +1,17 @@
+
+class Sudoku { 
+   constructor(grid) { 
+    //copy grid 
+    this.grid = grid.map(row => [...row]); 
+  }
+  
+  printMatrix() { 
+   this.grid.forEach(row => console.log(row.join(" ")));
+  }//printMatix
+
+}// Sudoku
+
+
 // main matrix 
 let matrix = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -12,13 +26,5 @@ let matrix = [
 ]; 
 
 
-function printMatrix(matrix) { 
-  let i = 0; 
-  let j = 0; 
-
-  for(i = 0 ; i < 9 ; i++) { 
-    for(j = 0; j < 9; j++) { 
-      console.log(matrix[i][j]);
-    }//end for (j)
-  }//end for (i) 
-}
+const solver = new Sudoku(matrix); 
+solver.printMatrix();
