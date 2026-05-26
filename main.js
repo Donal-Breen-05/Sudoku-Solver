@@ -68,6 +68,28 @@ function readGridFromHtml() {
 
 }//end readGridFromHtml
 
+function writeGridToHtml(original, solved) { 
+  
+  //rows 
+  for (let row = 0 ; row < 9 ; row++) { 
+
+    //cols 
+    for (let col = 0 ; col < 9 ; col++ ) { 
+
+      //fill in blanks 
+      if (original[row][col] === 0 ) {
+
+        const cell = sudokuGrid.querySelector(`[data-row="${row}"][data-col="${col}"]`); 
+        cell.querySelector('input').value = solved[row][col]; 
+        cell.classList.add('solved'); 
+
+      }//end if 
+
+    }//end for(col)
+
+  }//end for (row)
+
+}//end write to grid
 
 
 
