@@ -133,11 +133,28 @@ solveBtn.addEventListener('click', () => {
   if (success) { 
     
     //write to html 
+    writeGridToHtml(matrix, solver.grid); 
+    status.textContent = 'Solved' ; 
+    status.className = 'success'; 
 
   }
   else{ 
     //cant be solved 
     //error 
-  }
+    status.textContent = 'No solutions available'; 
+    status.className = 'error'; 
 
-} )
+  }// end if / else 
+
+} ); 
+
+
+clearBtn.addEventListener('click' , () => { 
+  
+  //fill all spaces with ''
+  const empty = Array.from({ length: 9} , () => Array(9).fill(0)); 
+  markFilledCells(empty); 
+  status.textContent = ''; 
+  status.className = '';
+
+}); 
