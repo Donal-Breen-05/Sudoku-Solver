@@ -1,5 +1,5 @@
 
-class Sudoku { 
+export class Sudoku { 
    constructor(grid) { 
     //copy grid 
     this.grid = grid.map(row => [...row]); 
@@ -80,6 +80,9 @@ class Sudoku {
 }// Sudoku
 
 
+
+/*
+
 // main matrix 
 let matrix = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -93,6 +96,7 @@ let matrix = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
 ]; 
 
-
 const solver = new Sudoku(matrix); 
+solver.solve();
 solver.printMatrix();
+*/

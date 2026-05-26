@@ -1,3 +1,6 @@
+//import solve class 
+import {Sudoku} from ./solve.js;
+
 //dom 
 const sudokuGrid = document.getElementById('sudoku-grid');
 const status   = document.getElementById('status');
@@ -25,7 +28,7 @@ for (let row = 0; row < 9; row++) {
       if (!/^[1-9]$/.test(e.target.value)) e.target.value = '';
 
     });
- 
+   
     cell.appendChild(input);
     sudokuGrid.appendChild(cell);
 
@@ -33,11 +36,12 @@ for (let row = 0; row < 9; row++) {
 
 }//end for(row) 
 
+
 function readGridFromHtml() { 
 
   const matrix = []; 
 
-  //rows 
+  makes//rows 
   for (let row = 0 ; row < 9; row++) { 
   
     const rowArr = []; 
@@ -61,3 +65,25 @@ function readGridFromHtml() {
 
 }//end readGridFromHtml
 
+
+
+
+
+// buttons 
+solveBtn.addEventListener('click', () => {
+
+  const matrix = readGridFromHtml(); 
+  const solver = new Sudoku(matrix); 
+  const success = solver.solve(); 
+
+  if (success) { 
+    
+    //write to html 
+
+  }
+  else{ 
+    //cant be solved 
+    //error 
+  }
+
+} )
