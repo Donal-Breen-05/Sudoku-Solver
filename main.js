@@ -1,5 +1,8 @@
+//test 
+console.log("main is loaded\n"); 
+
 //import solve class 
-import {Sudoku} from ./solve.js;
+import {Sudoku} from "./solve.js";
 
 //dom 
 const sudokuGrid = document.getElementById('sudoku-grid');
@@ -41,7 +44,7 @@ function readGridFromHtml() {
 
   const matrix = []; 
 
-  makes//rows 
+  //rows 
   for (let row = 0 ; row < 9; row++) { 
   
     const rowArr = []; 
@@ -49,11 +52,11 @@ function readGridFromHtml() {
     //cols 
     for (let col = 0 ; col < 9 ; col++) { 
 
-      const cell = sudokuGrid.querySelector('[data-rows="${row}"][data-cols="${col}"]');
+      const cell = sudokuGrid.querySelector(`[data-row="${row}"][data-col="${col}"]`);
       const value = parseInt(cell.querySelector('input').value); 
 
       //sets empty to 0 
-      rowArr.push(isNan(val) ?  0 : val); 
+      rowArr.push(isNaN(value) ?  0 : value); 
 
     }// end for (col) 
 
