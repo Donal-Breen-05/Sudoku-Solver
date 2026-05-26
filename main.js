@@ -91,7 +91,36 @@ function writeGridToHtml(original, solved) {
 
 }//end write to grid
 
+function markFilledCells(matrix) {
 
+  //rows 
+  for(let row = 0 ; row < 9 ; row++) { 
+
+    //cols
+    for (let col = 0 ; col < 9 ; col++) { 
+      
+      const cell = sudokuGrid.querySelector(`[data-row="${row}"][data-col="${col}"]`); 
+      const input = cell.querySelector('input'); 
+
+      cell.classList.remove('given' , 'solved' , 'error') ; 
+      
+      if (matrix[row][col]) { 
+        
+        input.value = matrix[row][col]; 
+        cell.classList.add('given'); 
+
+      }//end if 
+      else { 
+        
+        input.value = ''; 
+
+      }// end else 
+    
+    }//end for (col)
+
+  }// end for (row)
+
+}//end mark filled cells 
 
 
 // buttons 
