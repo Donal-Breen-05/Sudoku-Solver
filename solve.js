@@ -18,7 +18,7 @@ export class Sudoku {
   
     //check column 
     for(let i = 0 ; i < 9 ; i++ )
-      if(this.grid[i][col] === num) return flase; 
+      if(this.grid[i][col] === num) return false; 
 
     //check 3x3 grid 
     const startRow = row - (row % 3); 
