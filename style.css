@@ -58,3 +58,34 @@ body {
 .cell[data-row="8"] { 
   border-bottom: 2px solid black; 
 }
+
+
+/*input feilds*/ 
+.cell input { 
+  width: 100%; 
+  height: 100%; 
+
+  border: none; 
+  outline: none; 
+
+  text-align: center; 
+  font-size: 1.2rem; 
+}
+
+.cell input:focus { 
+  background:gray; 
+}
+
+/*buttons*/ 
+.controls { 
+  background:gray; 
+}
+
+button { 
+  padding:10px 20px ; 
+  cursor:pointer; 
+}
+
+#status { 
+  min-height: 20px; 
+}
