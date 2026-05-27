@@ -15,3 +15,16 @@ body {
   gap: 20px; 
   padding: 20px;
 }
+
+/*main box */
+#sudoku-grid { 
+  display: grid; 
+  grid-template-columns: repeat(9,1fr); 
+  
+  width: min(450px , 90vw); 
+  height: min(450px , 90vw); 
+
+  border: 2px solid black; 
+}
+
+
