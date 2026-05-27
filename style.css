@@ -27,4 +27,34 @@ body {
   border: 2px solid black; 
 }
 
+/*cells*/ 
+.cell { 
+  border: 1px solid gray; 
 
+  display: flex; 
+  justify-content:center; 
+  align-items:center; 
+}
+
+/*cell boundaries*/ 
+
+/*cols*/ 
+.cell[data-col="0"] { 
+  border-left: 2px solid black; 
+}
+
+.cell[data-col="2"],
+.cell[data-col="5"],
+.cell[data-col="8"] { 
+  border-right: 2px solid black; 
+}
+
+.cell[data-row="0"] { 
+  border-top: 2px solid black; 
+}
+
+.cell[data-row="2"],
+.cell[data-row="5"],
+.cell[data-row="8"] { 
+  border-bottom: 2px solid black; 
+}
